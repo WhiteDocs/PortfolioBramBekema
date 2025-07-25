@@ -1,140 +1,144 @@
-<!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
-
 <!DOCTYPE html>
 <html lang="nl" class="dark">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bram Bekema - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bram Bekema - Portfolio</title>
 
-    <!-- Tailwind CSS build -->
-    <link rel="stylesheet" href="./dist/output.css">
+  <!-- Tailwind CSS build -->
+  <link rel="stylesheet" href="./dist/output.css">
 
-    <!-- Eigen styling en AOS -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Eigen styling en AOS -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- JS scripts -->
-    <script>
-        window.addEventListener('beforeunload', () => {
-            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="typed-init.js" defer></script>
-    <script src="script.js" defer></script>
+  <!-- JS scripts -->
+  <script>
+    window.addEventListener('beforeunload', () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="typed-init.js" defer></script>
+  <script src="script.js" defer></script>
+  <style>
+    .highlight-section {
+      animation: sectionHighlight 1s ease-in-out;
+    }
+    @keyframes sectionHighlight {
+      0% {
+        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+        background-color: inherit;
+      }
+      10% {
+        box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.6);
+        background-color: rgba(255, 255, 0, 0.05);
+      }
+      100% {
+        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+        background-color: inherit;
+      }
+    }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 m-0">
 
-    <header class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">Bram Bekema</a>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center space-x-2">
-                    <button id="menu-toggle" class="text-2xl text-white dark:text-white">☰</button>
-                    <button id="theme-toggle-mobile"
-                        class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
-                        🌙
-                    </button>
-                </div>
-
-                <!-- Desktop nav -->
-                <nav class="hidden md:flex space-x-6 items-center">
-                    <a href="#projecten" class="text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
-                    <a href="#bramfeed" class="text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
-                    <a href="#contact" class="text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
-
-                    <!-- Dark mode toggle (alleen zichtbaar op desktop) -->
-                    <button id="theme-toggle"
-                        class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
-                        🌙
-                    </button>
-                </nav>
-
-            </div>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 m-0 overflow-x-hidden">
+  <!-- Navbar -->
+  <header class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div class="flex justify-between items-center h-16">
+        <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">Bram Bekema</a>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a href="#projecten" class="text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
+          <a href="#bramfeed" class="text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
+          <a href="#contact" class="text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
+          <button id="theme-toggle"
+            class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+            🌙
+          </button>
+        </nav>
+        <div class="md:hidden flex items-center space-x-2">
+          <button id="menu-toggle" class="text-2xl text-gray-800 dark:text-white">☰</button>
+          <button id="theme-toggle-mobile"
+            class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+            🌙
+          </button>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
+  <!-- Hero Section -->
+  <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full pt-24" data-aos="fade-down" data-aos-delay="50">
+    <div class="py-12 flex flex-col items-center text-center px-4">
+      <img src="./IMG_2948.jpg" alt="Bram Bekema"
+        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white dark:text-white">Bram Bekema</h1>
+      <p class="mt-2 text-base sm:text-lg text-force-white">
+        <span id="typed" class="font-semibold typing-pulse text-force-white"></span>
+      </p>
+      <p class="max-w-2xl mt-4 text-force-white px-4">
+        Ik ben Bram, 20 jaar en een mix van introvert en extravert met een liefde voor wijn, tech, gamen en goede humor...
+      </p>
+      <p class="text-xs text-white dark:text-gray-400 opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+    </div>
+  </section>
 
-
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full pt-20" data-aos="fade-down"
-        data-aos-delay="50">
-        <div class="py-12 flex flex-col items-center text-center px-4">
-            <img src="./IMG_2948.jpg" alt="Bram Bekema"
-                class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
-            <h1 class="text-3xl sm:text-4xl font-bold text-white dark:text-white">Bram Bekema</h1>
-            <p class="mt-2 text-base sm:text-lg text-force-white">
-                <span id="typed" class="font-semibold typing-pulse text-force-white"></span>
-            </p>
-            <p class="max-w-2xl mt-4 text-force-white px-4">
-                Ik ben Bram, 20 jaar en een mix van introvert en extravert met een liefde voor wijn, tech, gamen en
-                goede humor...
-            </p>
-            <p class="text-xs text-white dark:text-gray-400 opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+  <!-- Vaardigheden -->
+  <section class="bg-gradient-custom py-12 px-4" data-aos="fade-up" data-aos-delay="50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
+      <div
+        class="group p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🧠 Hard Skills</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Contentcreatie (TikTok & Instagram)</li>
+              <li>Shopify webshopbeheer</li>
+              <li>Merkontwikkeling (DocsMedia)</li>
+              <li>Minecraft serverbeheer</li>
+              <li>Dronebesturing (DJI Mini 3)</li>
+              <li>Smart home installatie</li>
+              <li>Basis videobewerking</li>
+              <li>Strategisch denken in games</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🌱 Soft Skills</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Sterk zelfbewustzijn</li>
+              <li>Probleemoplossend vermogen</li>
+              <li>Empathie en loyaliteit</li>
+              <li>Fysieke humor & sociale intelligentie</li>
+              <li>Introvert met extraverte kracht</li>
+              <li>Veerkracht na herstel uit coma</li>
+              <li>Toekomstgericht denken</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Vaardigheden -->
-    <section class="bg-gradient-custom py-12 px-4" data-aos="fade-up" data-aos-delay="50">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
-            <div
-                class="group p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🧠 Hard Skills</h3>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Contentcreatie (TikTok & Instagram)</li>
-                            <li>Shopify webshopbeheer</li>
-                            <li>Merkontwikkeling (DocsMedia)</li>
-                            <li>Minecraft serverbeheer</li>
-                            <li>Dronebesturing (DJI Mini 3)</li>
-                            <li>Smart home installatie</li>
-                            <li>Basis videobewerking</li>
-                            <li>Strategisch denken in games</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🌱 Soft Skills</h3>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Sterk zelfbewustzijn</li>
-                            <li>Probleemoplossend vermogen</li>
-                            <li>Empathie en loyaliteit</li>
-                            <li>Fysieke humor & sociale intelligentie</li>
-                            <li>Introvert met extraverte kracht</li>
-                            <li>Veerkracht na herstel uit coma</li>
-                            <li>Toekomstgericht denken</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <!-- Projecten -->
+  <section class="bg-gradient-custom4 dark:bg-gray-900 scroll-mt-60 pt-32 pb-32 px-4" data-aos="fade-up" data-aos-delay="50">
+    <div class="max-w-5xl mx-auto" id="projecten">
+      <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
+      <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
+          <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projecten -->
-    <section class="bg-gradient-custom4 dark:bg-gray-900 py-12 px-4 scroll-mt-20" id="projecten" data-aos="fade-up">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
-            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-                <div
-                    class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
-                    <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Verhaal -->
-    <section class="bg-gradient-custom4 dark:bg-gray-800 py-12">
+   <!-- Verhaal -->
+    <section class="bg-gradient-custom4 dark:bg-gray-800 py-12 pt-28 pb-28 px-4" id="verhaal">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-2xl font-semibold mb-6 dark:text-white" data-aos="fade-right" data-aos-delay="100">Mijn
                 Verhaal</h2>
@@ -144,10 +148,10 @@
         </div>
     </section>
 
-    <!-- Live Feed -->
-    <section class="bg-gradient-custom4 dark:bg-gray-900 py-8" id="bramfeed">
+    <!-- BramFeed -->
+    <section class="bg-gradient-custom4 dark:bg-gray-900 py-8 pt-52 pb-52">
         <h2 class="text-2xl font-bold text-center mb-6 text-black dark:text-white">Wat houdt Bram bezig?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6" id="bramfeed">
             <div
                 class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
                 <h3 class="font-semibold text-lg mb-2 dark:text-white">📺 Laatst gekeken</h3>
@@ -185,8 +189,8 @@
     </section>
 
     <!-- Contact -->
-    <section class="bg-gradient-custom5 dark:bg-gray-900 py-12" id="contact">
-        <div class="w-full px-0 text-center">
+    <section class="bg-gradient-custom5 dark:bg-gray-900 py-12">
+        <div class="w-full px-0 text-center" id="contact">
             <h2 class="text-2xl font-semibold mb-4 text-gray-600 dark:text-gray-200">Contact</h2>
             <p>Volg mij of stuur me een berichtje via:</p>
             <div class="flex justify-center space-x-6 mt-4">
@@ -198,16 +202,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-6 bg-black text-white px-4">
-        &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
-    </footer>
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-6 bg-black text-white px-4">
+    &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
+  </footer>
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 
 </html>

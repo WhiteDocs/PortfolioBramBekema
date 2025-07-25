@@ -270,3 +270,25 @@ a:hover {
     font-size: 1rem;
   }
 }
+
+/* ======================= */
+.highlight-section {
+  animation: sectionHighlight 1s ease-in-out;
+}
+
+@keyframes sectionHighlight {
+  0% {
+    box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+    background-color: inherit;
+  }
+  10% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.6);
+    background-color: rgba(255, 255, 0, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+    background-color: inherit;
+  }
+}
+
+
