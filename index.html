@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bram Bekema - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        });
+    </script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="typed-init.js" defer></script>
+
+
+</head>
+
+<body class="bg-white text-gray-800 m-0">
+    <!-- Hero Section -->
+    <section class="bg-white shadow-md w-full m-0 p-0" data-aos="fade-down" data-aos-delay="50">
+        <div class="w-full py-12 flex flex-col items-center text-center m-0 p-0">
+            <img src="./IMG_2948.jpg" alt="Bram Bekema" class="w-40 h-40 rounded-full object-cover mb-4 transform transition duration-300 
+         hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+            <h1 class="text-4xl font-bold text-white">Bram Bekema</h1>
+            <p class="mt-2 text-lg text-white">
+            <p class="mt-2 text-lg text-white">
+                <span id="typed" class="font-semibold typing-pulse"></span>
+            </p>
+            </p>
+            <p class="max-w-2xl mt-4 text-white px-4">Ik ben Bram, 20 jaar en een mix van introvert en extravert met een
+                liefde voor wijn, tech, gamen en goede humor. Na een heftige tijd in mijn leven ben ik bewust bezig met
+                gezondheid, groei en het opbouwen van iets echts — een eigen plek, een gezinnetje, en een leven vol
+                creativiteit.</p>
+            <p class="text-xs text-white opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+            <div id="pulse-timer" class="text-sm text-red-500 mt-1"></div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="bg-gradient-custom py-12" data-aos="fade-up" data-aos-delay="50">
+        <div class="w-full px-0">
+            <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
+            <!-- De box heeft nu 'group' -->
+            <div
+                class="group p-6 bg-gray-100 rounded-lg shadow-sm max-w-4xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <!-- Hard Skills -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-black">
+                            <span class="mr-2 inline-block combo-emoji">🧠</span>
+                            Hard Skills
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Contentcreatie (TikTok & Instagram)</li>
+                            <li>Shopify webshopbeheer</li>
+                            <li>Merkontwikkeling (DocsMedia)</li>
+                            <li>Minecraft serverbeheer</li>
+                            <li>Dronebesturing (DJI Mini 3)</li>
+                            <li>Smart home installatie</li>
+                            <li>Basis videobewerking</li>
+                            <li>Strategisch denken in games</li>
+                        </ul>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 custom-blue">
+                            <span class="mr-2 inline-block combo-emoji">🌱</span>
+                            Soft Skills
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Sterk zelfbewustzijn</li>
+                            <li>Probleemoplossend vermogen</li>
+                            <li>Empathie en loyaliteit</li>
+                            <li>Fysieke humor & sociale intelligentie</li>
+                            <li>Introvert met extraverte kracht</li>
+                            <li>Veerkracht na herstel uit coma</li>
+                            <li>Toekomstgericht denken</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Project Section -->
+    <section class="bg-white py-12">
+        <div class="w-full px-0">
+            <h2 class="text-2xl font-semibold mb-6 text-center custom-blue">Projecten</h2>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="p-4 bg-gray-100 rounded-lg shadow-sm max-w-3xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+                    <h3 class="text-lg font-bold custom-blue">Minecraft Survival Server</h3>
+                    <p>Een zelfgehoste Paper Spigot server met custom plugins en modpacks. Gespeeld met vrienden en
+                        binnenkort uitbreiding gepland.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Personal Story Section -->
+    <section class="bg-gray-50 py-12">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-semibold mb-6" data-aos="fade-right" data-aos-delay="100">Mijn Verhaal</h2>
+            <p class="text-gray-700 leading-relaxed" data-aos="fade-left" data-aos-delay="100">Na een periode waarin ik
+                in coma lag, ben ik langzaam
+                teruggeklommen. Dat heeft mijn kijk op het leven compleet veranderd. Ik ben nu doelgerichter,
+                dankbaarder en vastberadener dan ooit. Of het nu gaat om sporten, content maken, of simpelweg genieten
+                van een goed glas wijn – ik pak mijn kansen en wil een verschil maken.</p>
+        </div>
+    </section>
+
+    <section class="bg-white py-8" id="live-feed">
+  <h2 class="text-2xl font-bold text-center mb-6 text-black">Wat houdt Bram bezig?</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
+
+    <!-- Laatst gekeken -->
+    <div class="p-4 rounded-lg shadow bg-gray-100">
+      <h3 class="font-semibold text-lg mb-2">📺 Laatst gekeken</h3>
+      <img src="https://image.tmdb.org/t/p/w300/xwPCv4U6KxxwGY4gIOrdtqvWDvW.jpg" alt="Lucifer" class="mb-2 rounded">
+      <p><strong>Lucifer</strong> <br><span class="text-sm text-gray-600">Seizoen 6 – Netflix</span></p>
+    </div>
+
+    <!-- Laatste nummer -->
+    <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-4">🎧 Laatst beluisterde muziek</h2>
+
+    <div class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl">
+      <img src="https://i.scdn.co/image/ab67616d00001e021d04d2c9381a3b2fef8d87a3" 
+           alt="Album cover" 
+           class="w-16 h-16 rounded-md shadow-lg">
+           
+      <div class="text-left">
+        <p class="text-lg font-semibold text-white">Can You Feel My Heart</p>
+        <p class="text-sm text-gray-400">Bring Me The Horizon</p>
+      </div>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-3">Geüpdatet op: 25 juli 2025</p>
+  </div>
+
+    <!-- Wijn van de week -->
+    <div class="p-4 rounded-lg shadow bg-gray-100">
+      <h3 class="font-semibold text-lg mb-2">🍷 Wijn van de week</h3>
+      <img src="https://example.com/pinot.jpg" alt="Pinot Grigio" class="mb-2 rounded">
+      <p><strong>Pinot Grigio</strong> <br><span class="text-sm text-gray-600">Fris, bloemig – 8.5/10</span></p>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section class="bg-white py-12">
+        <div class="w-full px-0 text-center">
+            <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+            <p>Volg mij of stuur me een berichtje via:</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.instagram.com/bram.bekema" class="text-blue-600 hover:underline"
+                    target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/bram-bekema-538922211/" class="text-blue-600 hover:underline"
+                    target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6 bg-black text-white">
+        &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script> <!-- DIT IS GOED -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
+</body>
+
+
+</html>

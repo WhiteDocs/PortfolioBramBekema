@@ -1,0 +1,239 @@
+/* Kleurenpalet */
+:root {
+  --blue: #2aa6ff;
+  --purple: #6917cf;
+  --white: #ffffff;
+  --black: #111111;
+  --dark-gray: #1e1e1e;
+  --light-bg: #f0f9ff;
+  --card-bg: #e0f2fe;
+}
+
+.custom-blue {
+  color: var(--blue);
+}
+
+/* Algemene body-stijl */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(135deg, #d60924 0%, #6917cf 100%);
+}
+
+/* Hero-sectie met gradient achtergrond */
+section.bg-white.shadow-md {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  color: var(--white);
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+/* Forceer witte tekst in gradient-sectie */
+.bg-gradient-custom h2,
+.bg-gradient-custom h3,
+.bg-gradient-custom p {
+  color: white !important;
+}
+
+/* Teksten in andere secties */
+section:not(.bg-white):not(.bg-gradient-custom) h2,
+section:not(.bg-white):not(.bg-gradient-custom) h3,
+section:not(.bg-white):not(.bg-gradient-custom) p {
+  color: var(--dark-gray);
+}
+
+/* Projectkaarten */
+.bg-gray-100 {
+  background-color: var(--card-bg) !important;
+  border-left: 4px solid var(--purple);
+  padding-left: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Profielfoto styling */
+img.profile-pic {
+  border-radius: 9999px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Links */
+a {
+  color: var(--blue);
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+/* Contact sectie links */
+.text-blue-600 {
+  color: var(--blue);
+}
+.text-blue-600:hover {
+  color: var(--purple);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.8s ease-out both;
+}
+
+@keyframes bounce-once {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-12px);
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes pulse-forever {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+}
+
+.combo-emoji {
+  transition: all 0.3s ease-in-out;
+}
+
+.group:hover .combo-emoji {
+  animation: bounce-once 0.7s ease-in-out forwards, pulse-forever 1.2s ease-in-out 0.7s infinite;
+}
+
+.emoji-anim {
+  transition: all 0.3s ease-in-out;
+}
+
+.bounce-once {
+  animation: bounce-once 0.7s ease-in-out forwards;
+}
+
+.pulse-forever {
+  animation: pulse-forever 1.2s ease-in-out infinite;
+}
+
+
+/* Forceer zwart voor h3 in skills-box */
+.bg-gray-100 h3 {
+  color: var(--dark-gray) !important;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.typing-pulse {
+  animation: subtle-pulse 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out;
+}
+
+.konami-hint {
+  font-size: 0.875rem; /* = text-sm (iets groter dan xs) */
+  color: #ffffff;
+  opacity: 0.8;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #77ff77;
+    text-shadow: none;
+    opacity: 0.8;
+    font-weight: bold;
+  }
+  50% {
+    transform: scale(1.3);
+    color: #ff4d4d;
+    text-shadow: 0 0 12px #ff4d4d, 0 0 20px #ff4d4d;
+    opacity: 1;
+    font-weight: bold;
+
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2.5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
