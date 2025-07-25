@@ -140,11 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     const targetID = this.getAttribute("href").substring(1);
-    const target = document.getElementById(targetID);
-    if (target) {
+    const section = document.getElementById(targetID);
+    const highlightElements = section?.querySelectorAll("[data-highlight]") || [];
+
+    if (highlightElements.length > 0) {
       setTimeout(() => {
-        target.classList.add("highlight-section");
-        setTimeout(() => target.classList.remove("highlight-section"), 2000);
+        highlightElements.forEach(el => el.classList.add("highlight-section"));
+        setTimeout(() => {
+          highlightElements.forEach(el => el.classList.remove("highlight-section"));
+        }, 2000);
       }, 400); // wacht tot scroll klaar is
     }
   });

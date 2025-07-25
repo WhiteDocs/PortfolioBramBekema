@@ -1,3 +1,5 @@
+<!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
+
 <!DOCTYPE html>
 <html lang="nl" class="dark">
 
@@ -28,15 +30,15 @@
     }
     @keyframes sectionHighlight {
       0% {
-        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
         background-color: inherit;
       }
       10% {
-        box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.6);
-        background-color: rgba(255, 255, 0, 0.05);
+        box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.10);
       }
       100% {
-        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
         background-color: inherit;
       }
     }
@@ -123,19 +125,21 @@
     </div>
   </section>
 
-  <!-- Projecten -->
-  <section class="bg-gradient-custom4 dark:bg-gray-900 scroll-mt-60 pt-32 pb-32 px-4" data-aos="fade-up" data-aos-delay="50">
-    <div class="max-w-5xl mx-auto" id="projecten">
-      <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
-      <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-        <div
-          class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-          <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
-          <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...</p>
-        </div>
+<!-- Projecten -->
+<section class="bg-gradient-custom4 dark:bg-gray-900 pt-32 pb-24 px-4 scroll-mt-24" id="projecten">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
+    <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+      <div
+        data-highlight
+        class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
+        <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
    <!-- Verhaal -->
     <section class="bg-gradient-custom4 dark:bg-gray-800 py-12 pt-28 pb-28 px-4" id="verhaal">
@@ -149,18 +153,17 @@
     </section>
 
     <!-- BramFeed -->
-    <section class="bg-gradient-custom4 dark:bg-gray-900 py-8 pt-52 pb-52">
+    <section class="bg-gradient-custom4 dark:bg-gray-900 py-8 pt-52 pb-52" id="bramfeed">
         <h2 class="text-2xl font-bold text-center mb-6 text-black dark:text-white">Wat houdt Bram bezig?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6" id="bramfeed">
-            <div
-                class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
+            <div data-highlight class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
                 <h3 class="font-semibold text-lg mb-2 dark:text-white">📺 Laatst gekeken</h3>
                 <img src="https://i.pinimg.com/736x/f2/7e/cc/f27ecc64d03a238d1add2d2af18ba4cd.jpg" alt="Lucifer"
                     class="mb-2 rounded mx-auto">
                 <p class="text-gray-700 dark:text-gray-300"><strong>Lucifer</strong><br><span
                         class="text-sm text-gray-600 dark:text-gray-400">Seizoen 5 – Netflix</span></p>
             </div>
-            <div class="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:custom-white col-span-1 md:col-span-3">
+            <div data-highlight class="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:custom-white col-span-1 md:col-span-3">
                 <h3 id="3games" class="font-semibold text-lg mb-4 text-center dark:custom-white">🎮 Top 3 favoriete
                     games all time
                 </h3>
