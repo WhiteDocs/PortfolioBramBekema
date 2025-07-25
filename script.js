@@ -110,21 +110,26 @@ document.addEventListener('DOMContentLoaded', () => {
   scheduleNextGlow();
 });
 
-// Dark mode toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('dark-toggle');
-  const html = document.documentElement;
+const toggleBtn = document.getElementById('theme-toggle');
 
-  if (localStorage.getItem('theme') === 'dark') {
-    html.classList.add('dark');
+// Zet het juiste icoon bij laden
+window.addEventListener('DOMContentLoaded', () => {
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    toggleBtn.textContent = '🌞';
+  } else {
+    toggleBtn.textContent = '🌙';
   }
-
-  toggleBtn.addEventListener('click', () => {
-    html.classList.toggle('dark');
-    if (html.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
 });
+
+// Wissel tussen licht/donker en update icoon + opslag
+toggleBtn.addEventListener('click', () => {
+  const root = document.documentElement;
+  const isDark = root.classList.toggle('dark');
+  toggleBtn.textContent = isDark ? '🌞' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+
+

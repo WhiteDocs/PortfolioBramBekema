@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bram Bekema - Portfolio</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        };
-    </script>
+    <!-- Tailwind CSS build -->
+    <link rel="stylesheet" href="./dist/output.css">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Eigen styling en AOS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- JS scripts -->
     <script>
         window.addEventListener('beforeunload', () => {
             window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -27,15 +24,17 @@
     <script src="script.js" defer></script>
 </head>
 
+
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 m-0">
     <div class="fixed top-4 right-4 z-50">
-        <button id="dark-toggle"
-            class="bg-gray-200 dark:bg-gray-800 text-black dark:text-white px-3 py-2 rounded-full shadow hover:shadow-lg transition">
-            🌙 / ☀️
+        <button id="theme-toggle"
+            class="text-2xl p-2 rounded-full shadow-md bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+            🌙
         </button>
     </div>
 
-    <!-- Hero Section -->
+
+    <!-- Hero Section 🌙 / ☀️ -->
     <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full m-0 p-0 aos-init aos-animate"
         data-aos="fade-down" data-aos-delay="50">
         <div class="w-full py-12 flex flex-col items-center text-center m-0 p-0">
