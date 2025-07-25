@@ -147,50 +147,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ////////////////////////////////
 
-const clientId = "78dc17ae73d34dc2bab020939e068e29"; // jouw clientId
-const redirectUri = "https://whitedocs.github.io/PortfolioBramBekema/";
-const scopes = ["user-read-recently-played"];
+const clientId = '78dc17ae73d34dc2bab020939e068e29'; // vervang dit met je echte Client ID
+const redirectUri = 'https://whitedocs.github.io/PortfolioBramBekema/'; // vervang dit met je echte redirect URI
+const scopes = ['user-read-recently-played'];
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("login-btn").addEventListener("click", () => {
-    console.log("Spotify knop geklikt ✅"); // <- tijdelijke debug
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}`;
-    window.location.href = authUrl;
-  });
+document.getElementById('spotify-login').addEventListener('click', () => {
+  const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}`;
+  window.location.href = authUrl;
 });
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   const hash = window.location.hash;
   if (hash) {
-    const token = new URLSearchParams(hash.substring(1)).get("access_token");
+    const token = new URLSearchParams(hash.substring(1)).get('access_token');
     if (token) {
       fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
+          Authorization: `Bearer ${token}`
+        }
       })
         .then(res => res.json())
         .then(data => {
           const track = data.items[0].track;
-          const output = document.getElementById("spotify-output");
-          const block = document.getElementById("spotify-block");
-          const album = document.getElementById("spotify-album");
-          const title = document.getElementById("spotify-title");
-          const artist = document.getElementById("spotify-artist");
-
-          album.src = track.album.images[0].url;
-          title.textContent = track.name;
-          artist.textContent = track.artists.map(a => a.name).join(", ");
-          block.classList.remove("opacity-0");
-
+          document.getElementById('spotify-album').src = track.album.images[0].url;
+          document.getElementById('spotify-title').textContent = track.name;
+          document.getElementById('spotify-artist').textContent = track.artists.map(a => a.name).join(', ');
+          document.getElementById('spotify-block').classList.remove('opacity-0');
         })
         .catch(err => {
-          console.error("Spotify API error:", err);
-          document.getElementById("spotify-output").textContent = "❌ Kan Spotify-gegevens niet ophalen.";
+          console.error('Spotify API fout:', err);
         });
     }
   }
 });
+
 
 
 
