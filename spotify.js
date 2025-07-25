@@ -1,27 +1,30 @@
 // spotify.js
-// Volledige werkende Spotify integratie voor GitHub Pages zonder backend
-// Gebruikt de Implicit Grant Flow + Spotify Web API JS wrapper
+// Volledig werkende Spotify integratie voor GitHub Pages (client-only)
 
-// Vul hieronder je eigen gegevens in:
+// >>> Vul je eigen gegevens hieronder in <<<
 const clientId = "78dc17ae73d34dc2bab020939e068e29";
 const redirectUri = "https://whitedocs.github.io/PortfolioBramBekema/";
 const scopes = ["user-read-recently-played"];
 
+// UI-elementen
 const loginButton = document.getElementById("spotify-login-btn");
 const spotifyBlock = document.getElementById("spotify-block");
+const albumImg = document.getElementById("spotify-album");
+const titleEl = document.getElementById("spotify-title");
+const artistEl = document.getElementById("spotify-artist");
 
-// Spotify SDK init
+// Spotify SDK
 const spotifyApi = new SpotifyWebApi();
 
-// --- Stap 1: Login knop toont als niet ingelogd ---
+// --- Login Knop ---
 function showLoginButton() {
-  loginButton.classList.remove("hidden");
-  spotifyBlock.classList.add("opacity-0");
+  loginButton?.classList.remove("hidden");
+  spotifyBlock?.classList.add("opacity-0");
 }
 
 function hideLoginButton() {
-  loginButton.classList.add("hidden");
-  spotifyBlock.classList.remove("opacity-0");
+  loginButton?.classList.add("hidden");
+  spotifyBlock?.classList.remove("opacity-0");
 }
 
 function redirectToSpotifyAuth() {
@@ -31,7 +34,7 @@ function redirectToSpotifyAuth() {
   window.location.href = authUrl;
 }
 
-// --- Stap 2: Check access_token in URL ---
+// --- Token ophalen uit URL ---
 function getAccessTokenFromUrl() {
   const hash = window.location.hash;
   if (hash.includes("access_token")) {
@@ -41,29 +44,37 @@ function getAccessTokenFromUrl() {
   return null;
 }
 
+// --- Data ophalen uit Spotify API ---
 function loadSpotifyData(token) {
   spotifyApi.setAccessToken(token);
+
   spotifyApi.getMyRecentlyPlayedTracks({ limit: 1 })
-    .then(function (data) {
+    .then(data => {
+      if (!data.items.length) {
+        console.warn("Geen recent beluisterde nummers gevonden.");
+        showLoginButton();
+        return;
+      }
+
       const track = data.items[0].track;
-      document.getElementById("spotify-album").src = track.album.images[0].url;
-      document.getElementById("spotify-title").textContent = track.name;
-      document.getElementById("spotify-artist").textContent = track.artists.map(a => a.name).join(", ");
+      albumImg.src = track.album.images[0].url;
+      titleEl.textContent = track.name;
+      artistEl.textContent = track.artists.map(a => a.name).join(", ");
       hideLoginButton();
     })
-    .catch(function (err) {
-      console.error("Spotify API fout:", err);
+    .catch(err => {
+      console.error("❌ Spotify API error:", err);
       showLoginButton();
     });
 }
 
-// --- Stap 3: Init bij laden ---
+// --- Init ---
 document.addEventListener("DOMContentLoaded", () => {
   const token = getAccessTokenFromUrl();
 
   if (token) {
     localStorage.setItem("spotify_token", token);
-    window.location.hash = ""; // verwijder access_token uit URL
+    window.location.hash = ""; // Verwijder token uit URL
     loadSpotifyData(token);
   } else {
     const savedToken = localStorage.getItem("spotify_token");
@@ -73,9 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showLoginButton();
     }
   }
-});
 
-// --- Stap 4: Klik op login knop ---
-if (loginButton) {
-  loginButton.addEventListener("click", redirectToSpotifyAuth);
-}
+  // Login knop listener
+  loginButton?.addEventListener("click", redirectToSpotifyAuth);
+});
