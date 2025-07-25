@@ -5,6 +5,7 @@ const spotifyApi = new SpotifyWebApi();
 
 document.getElementById('spotify-login-btn').addEventListener('click', () => {
   const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}&show_dialog=true`;
+    localStorage.removeItem('spotify_token'); // Clear previous token
   window.location.href = authUrl;
 });
 
