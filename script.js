@@ -147,43 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ////////////////////////////////
 
-const clientId = '78dc17ae73d34dc2bab020939e068e29';
-const redirectUri = 'https://whitedocs.github.io/PortfolioBramBekema/';
-const scopes = ['user-read-recently-played'];
 
-const loginButton = document.getElementById('spotify-login-btn');
-
-loginButton.addEventListener('click', () => {
-  const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}&show_dialog=true`;
-  window.location.href = authUrl;
-});
-
-
-  window.addEventListener("load", () => {
-  const hash = window.location.hash;
-
-  if (hash.includes("access_token")) {
-    const token = new URLSearchParams(hash.substring(1)).get("access_token");
-
-    fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        const track = data.items[0].track;
-        document.getElementById("spotify-album").src = track.album.images[0].url;
-        document.getElementById("spotify-title").textContent = track.name;
-        document.getElementById("spotify-artist").textContent = track.artists.map(a => a.name).join(", ");
-        document.getElementById("spotify-block").classList.remove("opacity-0");
-        loginButton.remove(); // verberg knop na login
-      })
-      .catch(err => {
-        console.error("Spotify API fout:", err);
-      });
-  }
-});
 
 
 
