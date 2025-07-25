@@ -99,7 +99,7 @@ function scheduleNextGlow() {
   }, delay);
 }
 
-// 🔹 Dark Mode & Mobile Menu
+// 🔹 Dark Mode & Mobile Menu + Highlight Scroll Effect
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const menuBtn = document.getElementById('menu-toggle');
@@ -122,40 +122,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById(id);
     if (!btn) return;
 
-    // Zet juist icoon bij laden
     btn.textContent = root.classList.contains('dark') ? '🌞' : '🌙';
 
-    // Click toggle logic
     btn.addEventListener('click', () => {
       const isDark = root.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-      // Update alle knoppen tegelijk
       document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(b => {
         b.textContent = isDark ? '🌞' : '🌙';
       });
     });
   });
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    const targetID = this.getAttribute("href").substring(1);
-    const section = document.getElementById(targetID);
-    const highlightElements = section?.querySelectorAll("[data-highlight]") || [];
+  // ➤ Smooth scroll highlight effect op meerdere elementen
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetID = this.getAttribute("href").substring(1);
+      const section = document.getElementById(targetID);
+      const highlightElements = section?.querySelectorAll("[data-highlight]") || [];
 
-    if (highlightElements.length > 0) {
-      setTimeout(() => {
-        highlightElements.forEach(el => el.classList.add("highlight-section"));
+      if (highlightElements.length > 0) {
         setTimeout(() => {
-          highlightElements.forEach(el => el.classList.remove("highlight-section"));
-        }, 2000);
-      }, 400); // wacht tot scroll klaar is
-    }
+          highlightElements.forEach(el => el.classList.add("highlight-section"));
+          setTimeout(() => {
+            highlightElements.forEach(el => el.classList.remove("highlight-section"));
+          }, 2000);
+        }, 400);
+      }
+
+      // Sluit mobiel menu automatisch bij klik
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
   });
-});
-
-
-
 
   // Start glow timer
   scheduleNextGlow();
