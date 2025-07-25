@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" class="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bram Bekema - Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
+
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -15,22 +24,35 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="typed-init.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/spotify-web-api-js@1.5.2/src/spotify-web-api.js"></script>
-    <script src="spotify.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
-<body class="bg-white text-gray-800 m-0">
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 m-0">
+    <div class="fixed top-4 right-4 z-50">
+        <button id="dark-toggle"
+            class="bg-gray-200 dark:bg-gray-800 text-black dark:text-white px-3 py-2 rounded-full shadow hover:shadow-lg transition">
+            🌙 / ☀️
+        </button>
+    </div>
+
     <!-- Hero Section -->
-    <section class="bg-white shadow-md w-full m-0 p-0" data-aos="fade-down" data-aos-delay="50">
+    <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full m-0 p-0 aos-init aos-animate"
+        data-aos="fade-down" data-aos-delay="50">
         <div class="w-full py-12 flex flex-col items-center text-center m-0 p-0">
-            <img src="./IMG_2948.jpg" alt="Bram Bekema" class="w-40 h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
-            <h1 class="text-4xl font-bold text-white">Bram Bekema</h1>
-            <p class="mt-2 text-lg text-white">
-                <span id="typed" class="font-semibold typing-pulse"></span>
+            <img src="./IMG_2948.jpg" alt="Bram Bekema"
+                class="w-40 h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+            <h1 class="text-4xl font-bold text-white dark:text-white">Bram Bekema</h1>
+            <p class="mt-2 text-lg text-force-white">
+                <span id="typed" class="font-semibold typing-pulse text-force-white"></span>
             </p>
-            <p class="max-w-2xl mt-4 text-white px-4">Ik ben Bram, 20 jaar en een mix van introvert en extravert met een liefde voor wijn, tech, gamen en goede humor. Na een heftige tijd in mijn leven ben ik bewust bezig met gezondheid, groei en het opbouwen van iets echts — een eigen plek, een gezinnetje, en een leven vol creativiteit.</p>
-            <p class="text-xs text-white opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
-            <div id="pulse-timer" class="text-sm text-red-500 mt-1"></div>
+            <p class="max-w-2xl mt-4 text-force-white px-4">
+                Ik ben Bram, 20 jaar en een mix van introvert
+                en extravert met een liefde voor wijn, tech, gamen en goede humor. Na een heftige tijd in mijn leven ben
+                ik bewust bezig met gezondheid, groei en het opbouwen van iets echts — een eigen plek, een gezinnetje,
+                en een leven vol creativiteit.
+            </p>
+            <p class="text-xs text-white dark:text-gray-400 opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+            <!-- <div id="pulse-timer" class="text-sm text-red-500 mt-1"></div> -->
         </div>
     </section>
 
@@ -38,10 +60,11 @@
     <section class="bg-gradient-custom py-12" data-aos="fade-up" data-aos-delay="50">
         <div class="w-full px-0">
             <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
-            <div class="group p-6 bg-gray-100 rounded-lg shadow-sm max-w-4xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+            <div
+                class="group p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm max-w-4xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <h3 class="text-xl font-bold mb-2 text-black">🧠 Hard Skills</h3>
+                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🧠 Hard Skills</h3>
                         <ul class="list-disc list-inside space-y-1">
                             <li>Contentcreatie (TikTok & Instagram)</li>
                             <li>Shopify webshopbeheer</li>
@@ -54,7 +77,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-2 custom-blue">🌱 Soft Skills</h3>
+                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🌱 Soft Skills</h3>
                         <ul class="list-disc list-inside space-y-1">
                             <li>Sterk zelfbewustzijn</li>
                             <li>Probleemoplossend vermogen</li>
@@ -71,72 +94,87 @@
     </section>
 
     <!-- Projecten -->
-    <section class="bg-white py-12">
+    <section class="bg-gradient-custom4 dark:bg-gray-900 py-12">
         <div class="w-full px-0">
-            <h2 class="text-2xl font-semibold mb-6 text-center custom-blue">Projecten</h2>
+            <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
             <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 bg-gray-100 rounded-lg shadow-sm max-w-3xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
-                    <h3 class="text-lg font-bold custom-blue">Minecraft Survival Server</h3>
-                    <p>Een zelfgehoste Paper Spigot server met custom plugins en modpacks. Gespeeld met vrienden en binnenkort uitbreiding gepland.</p>
+                <div
+                    class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm max-w-3xl mx-auto transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+                    <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
+                    <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks.
+                        Gespeeld met vrienden en binnenkort uitbreiding gepland.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Verhaal -->
-    <section class="bg-gray-50 py-12">
+    <section class="bg-gradient-custom4 dark:bg-gray-800 py-12">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl font-semibold mb-6" data-aos="fade-right" data-aos-delay="100">Mijn Verhaal</h2>
-            <p class="text-gray-700 leading-relaxed" data-aos="fade-left" data-aos-delay="100">Na een periode waarin ik in coma lag, ben ik langzaam teruggeklommen. Dat heeft mijn kijk op het leven compleet veranderd. Ik ben nu doelgerichter, dankbaarder en vastberadener dan ooit.</p>
+            <h2 class="text-2xl font-semibold mb-6 dark:text-white" data-aos="fade-right" data-aos-delay="100">Mijn
+                Verhaal</h2>
+            <p class="text-gray-700 dark:text-gray-200 leading-relaxed" data-aos="fade-left" data-aos-delay="100">Na een
+                periode waarin ik in coma lag, ben ik langzaam teruggeklommen. Dat heeft mijn kijk op het leven compleet
+                veranderd. Ik ben nu doelgerichter, dankbaarder en vastberadener dan ooit.</p>
         </div>
     </section>
 
     <!-- Live Feed -->
-    <section class="bg-white py-8" id="live-feed">
-        <h2 class="text-2xl font-bold text-center mb-6 text-black">Wat houdt Bram bezig?</h2>
+    <section class="bg-gradient-custom4 dark:bg-gray-900 py-8" id="live-feed">
+        <h2 class="text-2xl font-bold text-center mb-6 text-black dark:text-white">Wat houdt Bram bezig?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
-            <!-- Laatst gekeken -->
-            <div class="p-4 rounded-lg shadow bg-gray-100">
-                <h3 class="font-semibold text-lg mb-2">📺 Laatst gekeken</h3>
-                <img src="https://image.tmdb.org/t/p/w300/xwPCv4U6KxxwGY4gIOrdtqvWDvW.jpg" alt="Lucifer" class="mb-2 rounded">
-                <p><strong>Lucifer</strong> <br><span class="text-sm text-gray-600">Seizoen 6 – Netflix</span></p>
+            <div
+                class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
+                <h3 class="font-semibold text-lg mb-2 dark:text-white">📺 Laatst gekeken</h3>
+                <img src="https://i.pinimg.com/736x/f2/7e/cc/f27ecc64d03a238d1add2d2af18ba4cd.jpg" alt="Lucifer"
+                    class="mb-2 rounded mx-auto">
+                <p class="text-gray-700 dark:text-gray-300"><strong>Lucifer</strong><br><span
+                        class="text-sm text-gray-600 dark:text-gray-400">Seizoen 5 – Netflix</span></p>
             </div>
-
-            <!-- Spotify -->
-            <div class="text-center">
-                <button id="spotify-login-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">🔑 Koppel Spotify</button>
-                <div id="spotify-block" class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl opacity-0 transition-opacity duration-500 mt-4">
-                    <img id="spotify-album" src="" alt="Album cover" class="w-16 h-16 rounded-md shadow-lg" />
-                    <div class="text-left">
-                        <p id="spotify-title" class="text-lg font-semibold text-white">...</p>
-                        <p id="spotify-artist" class="text-sm text-gray-400">...</p>
+            <div class="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:custom-white col-span-1 md:col-span-3">
+                <h3 id="3games" class="font-semibold text-lg mb-4 text-center dark:custom-white">🎮 Top 3 favoriete
+                    games all time
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 text-center">
+                        <img src="https://www.minecraft.net/content/dam/minecraftnet/archive/7401f374f218e89052c0f88a68a4263d-aubbeta_header.jpg"
+                            alt="mc" class="rounded mb-2">
+                        <p class="font-semibold dark:text-white">Minecraft</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">PC – Microsoft</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 text-center">
+                        <img src="https://www.mentalhealthgaming.com/wp-content/uploads/2020/10/Phasmophobia-article-header.jpg"
+                            alt="Phasmophobia" class="rounded mb-2">
+                        <p class="font-semibold dark:text-white">Phasmophobia</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">PC – Steam</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 text-center">
+                        <img src="https://etgeekera.com/wp-content/uploads/2013/12/grand-theft-auto-v-header.jpg"
+                            alt="GTAV" class="rounded mb-2">
+                        <p class="font-semibold dark:text-white">Grand Theft Auto V</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">PC - Rockstar</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Wijn van de week -->
-            <div class="p-4 rounded-lg shadow bg-gray-100">
-                <h3 class="font-semibold text-lg mb-2">🍇 Wijn van de week</h3>
-                <img src="https://example.com/pinot.jpg" alt="Pinot Grigio" class="mb-2 rounded">
-                <p><strong>Pinot Grigio</strong> <br><span class="text-sm text-gray-600">Fris, bloemig – 8.5/10</span></p>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section class="bg-white py-12">
+    <section class="bg-gradient-custom5 dark:bg-gray-900 py-12">
         <div class="w-full px-0 text-center">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-600">Contact</h2>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-600 dark:text-gray-200">Contact</h2>
             <p>Volg mij of stuur me een berichtje via:</p>
             <div class="flex justify-center space-x-6 mt-4">
-                <a href="https://www.instagram.com/bram.bekema" class="text-blue-600 hover:underline" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/in/bram-bekema-538922211/" class="text-blue-600 hover:underline" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/bram.bekema" class="text-blue-600 hover:underline"
+                    target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/bram-bekema-538922211/" class="text-blue-600 hover:underline"
+                    target="_blank">LinkedIn</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center text-gray-500 text-sm py-6 bg-black text-white">
+    <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-6 bg-black text-white">
         &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
     </footer>
 

@@ -30,35 +30,9 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-// Scroll naar boven bij refresh
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
-
-// Emoji bounce -> pulse
-document.querySelectorAll(".group").forEach(group => {
-  const emojis = group.querySelectorAll(".combo-emoji");
-
-  group.addEventListener("mouseenter", () => {
-    emojis.forEach(emoji => {
-      emoji.classList.remove("pulse-forever");
-      emoji.classList.add("bounce-once");
-
-      emoji.addEventListener("animationend", () => {
-        emoji.classList.remove("bounce-once");
-        emoji.classList.add("pulse-forever");
-      }, { once: true });
-    });
-  });
-
-  group.addEventListener("mouseleave", () => {
-    emojis.forEach(emoji => emoji.classList.remove("pulse-forever"));
-  });
-});
-
 console.log("Script geladen ✅");
 
-
+// Easter Egg functie
 function triggerEasterEgg() {
   const profileImg = document.querySelector('img[alt="Bram Bekema"]');
 
@@ -71,69 +45,61 @@ function triggerEasterEgg() {
       profileImg.classList.remove('ring-4', 'ring-pink-500', 'animate-pulse');
     }, 60000);
   }
-
-  //alert("🎉 Easter Egg geactiveerd! Je bent een echte gamer 😎");
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const konamiCode = [
-    'ArrowUp', 'ArrowUp',
-    'ArrowDown', 'ArrowDown',
-    'ArrowLeft', 'ArrowRight',
-    'ArrowLeft', 'ArrowRight',
-    'b', 'a'
-  ];
-  let userInput = [];
+// Konami-code detectie
+const konamiCode = [
+  'ArrowUp', 'ArrowUp',
+  'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight',
+  'ArrowLeft', 'ArrowRight',
+  'b', 'a'
+];
+let userInput = [];
 
-  document.addEventListener('keydown', (e) => {
-    userInput.push(e.key);
-    if (userInput.length > konamiCode.length) {
-      userInput.shift();
-    }
+document.addEventListener('keydown', (e) => {
+  userInput.push(e.key);
+  if (userInput.length > konamiCode.length) {
+    userInput.shift();
+  }
 
-    if (JSON.stringify(userInput) === JSON.stringify(konamiCode)) {
-      triggerEasterEgg();
-    }
-  });
+  if (JSON.stringify(userInput) === JSON.stringify(konamiCode)) {
+    triggerEasterEgg();
+  }
 });
 
-
+// Glow-pulse hint
 function triggerGlowPulse() {
   const hint = document.querySelector('.konami-hint');
   if (!hint) return;
 
   hint.classList.add('glow-pulse');
 
-  // Verwijder na 2.5 seconden (zelfde als animatie in CSS)
   setTimeout(() => {
     hint.classList.remove('glow-pulse');
-    scheduleNextGlow(); // Plan opnieuw
+    scheduleNextGlow();
   }, 2500);
 }
 
 function scheduleNextGlow() {
-  const delay = Math.random() * 55000 + 5000; // tussen 5 en 60 sec
+  const delay = Math.random() * 55000 + 5000;
   const totalSeconds = Math.floor(delay / 1000);
   const timerEl = document.getElementById('pulse-timer');
 
   if (!timerEl) return;
 
   let remainingSeconds = totalSeconds;
-
-  // Toon eerste tijd meteen
   timerEl.textContent = `⏳ Glow-pulse over ${remainingSeconds} seconden`;
 
-  // Zet een interval om elke seconde af te tellen
   const countdown = setInterval(() => {
     remainingSeconds--;
     timerEl.textContent = `⏳ Glow-pulse over ${remainingSeconds} seconden`;
 
     if (remainingSeconds <= 0) {
-      clearInterval(countdown); // stop countdown
+      clearInterval(countdown);
     }
   }, 1000);
 
-  // Start de echte glow-pulse na het delay
   setTimeout(() => {
     triggerGlowPulse();
     clearInterval(countdown);
@@ -141,20 +107,24 @@ function scheduleNextGlow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  scheduleNextGlow(); // ← voeg deze toe
+  scheduleNextGlow();
 });
 
+// Dark mode toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('dark-toggle');
+  const html = document.documentElement;
 
-////////////////////////////////
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark');
+  }
 
-
-
-
-
-
-
-
-
-
-
-
+  toggleBtn.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    if (html.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  });
+});

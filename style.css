@@ -13,27 +13,88 @@
   color: var(--blue);
 }
 
+.text-force-white {
+  color: white !important;
+}
+
+
 /* Algemene body-stijl */
 body {
   font-family: 'Inter', sans-serif;
   color: var(--dark-gray);
+  background-color: var(--blue);
   margin: 0;
+}
+
+.dark body {
+  background-color: #111827; /* Tailwind gray-900 */
+}
+
+.bg-gradient-custom5 {
+  background: #b6b6b6;
+}
+
+.dark .bg-gradient-custom5 {
+  background: #1f2937; /* Tailwind gray-800 */
+}
+
+.bg-gradient-custom4 {
+  background: linear-gradient(135deg, #7fb7e6 0%, #00a2ff98 100%);
+  color: white;
+}
+
+.dark .bg-gradient-custom4 {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* donkerblauw/indigo */
+  color: white;
+}
+
+.bg-gradient-custom3 {
+  background: #4b5563; /* mist nog background in origineel, heb dit toegevoegd */
+  color: white;
+}
+
+.dark .bg-gradient-custom3 {
+  background: #111827; /* Tailwind gray-900 */
+  color: white;
+}
+
+.bg-gradient-custom2 {
+  background: linear-gradient(135deg, #2aa6ff 0%, #6917cf 100%);
+}
+
+.dark .bg-gradient-custom2 {
+  background: linear-gradient(135deg, #1e1e1e, #3b0764);
 }
 
 .bg-gradient-custom {
   background: linear-gradient(135deg, #d60924 0%, #6917cf 100%);
 }
 
-/* Hero-sectie met gradient achtergrond */
-section.bg-white.shadow-md {
-  background: linear-gradient(135deg, var(--blue), var(--purple));
-  color: var(--white);
+.dark .bg-gradient-custom {
+  background: linear-gradient(135deg, #1e1e1e, #3b0764);
 }
+
+
+/* /* /* /* /* /* /* /* /* /* /* /* /* /* /* /* /* /* /* /* */
+
+
+
+
 
 /* Headings */
 h1, h2, h3 {
-  color: var(--white);
+  color: var(--dark-gray);
   letter-spacing: -0.5px;
+}
+
+.dark h1,
+.dark h2,
+.dark h3 {
+  color: var(--white);
+}
+
+.mt-2 {
+  color: var(--white);
 }
 
 /* Forceer witte tekst in gradient-sectie */
@@ -50,11 +111,31 @@ section:not(.bg-white):not(.bg-gradient-custom) p {
   color: var(--dark-gray);
 }
 
+.dark section:not(.bg-white):not(.bg-gradient-custom) h2,
+.dark section:not(.bg-white):not(.bg-gradient-custom) h3,
+.dark section:not(.bg-white):not(.bg-gradient-custom) p {
+  color: #d1d5db;
+}
+
 /* Projectkaarten */
 .bg-gray-100 {
   background-color: var(--card-bg) !important;
   border-left: 4px solid var(--purple);
   padding-left: 1rem;
+}
+
+.dark .bg-gray-100 {
+  background-color: #2d2d2d !important;
+  color: #f5f5f5;
+}
+
+/* Card-achtergronden (live feed) */
+.bg-blue-100 {
+  background-color: #dbeafe !important; /* lichtblauw */
+}
+
+.dark .bg-blue-100 {
+  background-color: #1e3a8a !important; /* donkerblauw voor dark mode */
 }
 
 /* Footer */
@@ -86,6 +167,15 @@ a:hover {
 }
 .text-blue-600:hover {
   color: var(--purple);
+}
+
+.dark .custom-blue {
+  color: #60a5fa !important;
+}
+
+.dark p,
+.dark li {
+  color: #d1d5db;
 }
 
 @keyframes fadeInUp {
@@ -160,7 +250,6 @@ a:hover {
   animation: pulse-forever 1.2s ease-in-out infinite;
 }
 
-
 /* Forceer zwart voor h3 in skills-box */
 .bg-gray-100 h3 {
   color: var(--dark-gray) !important;
@@ -196,11 +285,11 @@ a:hover {
 }
 
 .glow-pulse {
-  animation: glow-pulse 2.5s ease-in-out;
+  animation: glowPulse 2.5s ease-in-out;
 }
 
 .konami-hint {
-  font-size: 0.875rem; /* = text-sm (iets groter dan xs) */
+  font-size: 0.875rem;
   color: #ffffff;
   opacity: 0.8;
   transition: all 0.5s ease-in-out;
@@ -220,20 +309,9 @@ a:hover {
     text-shadow: 0 0 12px #ff4d4d, 0 0 20px #ff4d4d;
     opacity: 1;
     font-weight: bold;
-
   }
 }
 
 .glow-pulse {
   animation: glowPulse 2.5s ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
