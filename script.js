@@ -151,9 +151,12 @@ const clientId = "78dc17ae73d34dc2bab020939e068e29"; // jouw clientId
 const redirectUri = "https://whitedocs.github.io/PortfolioBramBekema/";
 const scopes = ["user-read-recently-played"];
 
-document.getElementById("login-btn").addEventListener("click", () => {
-  const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}`;
-  window.location.href = authUrl;
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("login-btn").addEventListener("click", () => {
+    console.log("Spotify knop geklikt ✅"); // <- tijdelijke debug
+    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}`;
+    window.location.href = authUrl;
+  });
 });
 
 window.addEventListener("load", () => {
