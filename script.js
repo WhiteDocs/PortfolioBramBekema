@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  
 
   // Voeg extra styling toe aan mobile nav links
   document.querySelectorAll('#mobile-menu a').forEach(link => {
