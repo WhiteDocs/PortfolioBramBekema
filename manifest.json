@@ -1,0 +1,22 @@
+{
+  "name": "Bram Bekema Portfolio",
+  "short_name": "Bram",
+  "start_url": "/PortfolioBramBekema/",
+  "scope": "/PortfolioBramBekema/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "description": "Portfolio van Bram Bekema – wijnliefhebber, technerd en content creator.",
+  "icons": [
+    {
+      "src": "/PortfolioBramBekema/icons/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/PortfolioBramBekema/icons/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

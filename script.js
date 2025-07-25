@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  
+
 
   // Voeg extra styling toe aan mobile nav links
   document.querySelectorAll('#mobile-menu a').forEach(link => {
@@ -163,6 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
       'px-4', 'py-2', 'rounded', 'bg-gray-100', 'dark:bg-gray-800', 'hover:bg-gray-200', 'dark:hover:bg-gray-700', 'm-1'
     );
   });
+
+  // ➤ Smooth scroll behaviour
+  document.documentElement.style.scrollBehavior = 'smooth';
+
+  // ➤ Glitch-effect op naam bij hover
+  const name = document.querySelector('a[href="#bb"]');
+  if (name) {
+    name.classList.add('glitch');
+  }
 
   // Start glow timer
   scheduleNextGlow();

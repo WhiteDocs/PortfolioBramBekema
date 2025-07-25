@@ -4,160 +4,190 @@
 <html lang="nl" class="dark">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bram Bekema - Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bram Bekema - Portfolio</title>
 
-  <!-- Tailwind CSS build -->
-  <link rel="stylesheet" href="./dist/output.css">
+    <!-- Tailwind CSS build -->
+    <link rel="stylesheet" href="./dist/output.css">
 
-  <!-- Eigen styling en AOS -->
-  <link rel="stylesheet" href="style.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Eigen styling en AOS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- JS scripts -->
-  <script>
-    window.addEventListener('beforeunload', () => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="typed-init.js" defer></script>
-  <script src="script.js" defer></script>
-  <style>
-    .highlight-section {
-      animation: sectionHighlight 1s ease-in-out;
-    }
-    @keyframes sectionHighlight {
-      0% {
-        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
-        background-color: inherit;
-      }
-      10% {
-        box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
-        background-color: rgba(255, 255, 255, 0.10);
-      }
-      100% {
-        box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
-        background-color: inherit;
-      }
-    }
-  </style>
+    <!-- JS scripts -->
+    <script>
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="typed-init.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        .highlight-section {
+            animation: sectionHighlight 1s ease-in-out;
+        }
+
+        @keyframes sectionHighlight {
+            0% {
+                box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
+                background-color: inherit;
+            }
+
+            10% {
+                box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
+                background-color: rgba(255, 255, 255, 0.10);
+            }
+
+            100% {
+                box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.2);
+                background-color: inherit;
+            }
+        }
+    </style>
+
+    <!-- Standard (non-transparent) browser tab -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/PortfolioBramBekema/icons/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/PortfolioBramBekema/icons/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="/PortfolioBramBekema/icons/favicon/favicon.ico">
+
+    <!-- Apple Touch (transparant) -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="/PortfolioBramBekema/icons/favicon transparent/apple-touch-icon.png">
+
+    <!-- Android Chrome (transparant) -->
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="/PortfolioBramBekema/icons/favicon transparent/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="/PortfolioBramBekema/icons/favicon transparent/android-chrome-512x512.png">
+
+
+    <!-- Manifest & Theme -->
+    <link rel="manifest" href="/PortfolioBramBekema/manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+
+
 </head>
 
 
 
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 m-0 overflow-x-hidden w-full">
-<!-- Navbar -->
-<header class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">Bram Bekema</a>
-
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex space-x-6 items-center">
-        <a href="#projecten" class="text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
-        <a href="#bramfeed" class="text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
-        <a href="#contact" class="text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
-        <button id="theme-toggle"
-          class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
-          🌙
-        </button>
-      </nav>
-
-      <!-- Mobile nav trigger -->
-      <div class="md:hidden flex items-center space-x-2">
-        <button id="menu-toggle" class="text-2xl text-gray-800 dark:text-white">☰</button>
-        <button id="theme-toggle-mobile"
-          class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
-          🌙
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="hidden flex-col items-center bg-white dark:bg-gray-900 w-full py-4 shadow-lg z-40 md:hidden transition-all duration-300">
-      <a href="#projecten" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
-      <a href="#bramfeed" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
-      <a href="#contact" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
-    </div>
-  </div>
-</header>
+    <!-- Navbar -->
+    <header class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 text-xl font-bold text-gray-800 dark:text-white">
+                    <img src="icons/favicon transparent/rectangle.png" alt="Logo" class="w-32 h-22">
+                </a>
 
 
+                <!-- Desktop nav -->
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#projecten" class="text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
+                    <a href="#bramfeed" class="text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
+                    <button id="theme-toggle"
+                        class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                        🌙
+                    </button>
+                </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full pt-24" data-aos="fade-down" data-aos-delay="50">
-    <div class="py-12 flex flex-col items-center text-center px-4">
-      <img src="./IMG_2948.jpg" alt="Bram Bekema"
-        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
-      <h1 class="text-3xl sm:text-4xl font-bold text-white dark:text-white">Bram Bekema</h1>
-      <p class="mt-2 text-base sm:text-lg text-force-white">
-        <span id="typed" class="font-semibold typing-pulse text-force-white"></span>
-      </p>
-      <p class="max-w-2xl mt-4 text-force-white px-4">
-        Ik ben Bram, 20 jaar en een mix van introvert en extravert met een liefde voor wijn, tech, gamen en goede humor...
-      </p>
-      <p class="text-xs text-white dark:text-gray-400 opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
-    </div>
-  </section>
+                <!-- Mobile nav trigger -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="menu-toggle" class="text-2xl text-gray-800 dark:text-white">☰</button>
+                    <button id="theme-toggle-mobile"
+                        class="text-2xl p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                        🌙
+                    </button>
+                </div>
+            </div>
 
-  <!-- Vaardigheden -->
-  <section class="bg-gradient-custom py-12 px-4" data-aos="fade-up" data-aos-delay="50">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
-      <div
-        class="group p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🧠 Hard Skills</h3>
-            <ul class="list-disc list-inside space-y-1">
-              <li>Contentcreatie (TikTok & Instagram)</li>
-              <li>Shopify webshopbeheer</li>
-              <li>Merkontwikkeling (DocsMedia)</li>
-              <li>Minecraft serverbeheer</li>
-              <li>Dronebesturing (DJI Mini 3)</li>
-              <li>Smart home installatie</li>
-              <li>Basis videobewerking</li>
-              <li>Strategisch denken in games</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🌱 Soft Skills</h3>
-            <ul class="list-disc list-inside space-y-1">
-              <li>Sterk zelfbewustzijn</li>
-              <li>Probleemoplossend vermogen</li>
-              <li>Empathie en loyaliteit</li>
-              <li>Fysieke humor & sociale intelligentie</li>
-              <li>Introvert met extraverte kracht</li>
-              <li>Veerkracht na herstel uit coma</li>
-              <li>Toekomstgericht denken</li>
-            </ul>
-          </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden flex-col items-center bg-white dark:bg-gray-900 w-full py-4 shadow-lg z-40 md:hidden transition-all duration-300">
+                <a href="#projecten" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">Projecten</a>
+                <a href="#bramfeed" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">BramFeed</a>
+                <a href="#contact" class="py-2 text-gray-700 dark:text-gray-200 hover:underline">Contact</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-<!-- Projecten -->
-<section class="bg-gradient-custom4 dark:bg-gray-900 pt-32 pb-24 px-4 scroll-mt-24" id="projecten">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
-    <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-      <div
-        data-highlight
-        class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-        <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
-        <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
 
-   <!-- Verhaal -->
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-custom2 dark:bg-gray-800 shadow-md w-full pt-24" data-aos="fade-down"
+        data-aos-delay="50">
+        <div class="py-12 flex flex-col items-center text-center px-4">
+            <img src="./IMG_2948.jpg" alt="Bram Bekema"
+                class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-4 transform transition duration-300 hover:scale-125 hover:shadow-2xl hover:drop-shadow-[0_10px_20px_rgba(0,0,0,1)]">
+            <h1 class="text-3xl sm:text-4xl font-bold text-white dark:text-white glitch">Bram Bekema</h1>
+            <p class="mt-2 text-base sm:text-lg text-force-white">
+                <span id="typed" class="font-semibold typing-pulse text-force-white"></span>
+            </p>
+            <p class="max-w-2xl mt-4 text-force-white px-4">
+                Ik ben Bram, 20 jaar en een mix van introvert en extravert met een liefde voor wijn, tech, gamen en
+                goede humor...
+            </p>
+            <p class="text-xs text-white dark:text-gray-400 opacity-50 mt-1 konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+        </div>
+    </section>
+
+    <!-- Vaardigheden -->
+    <section class="bg-gradient-custom py-12 px-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center drop-shadow-lg text-white">Vaardigheden</h2>
+            <div
+                class="group p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🧠 Hard Skills</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Contentcreatie (TikTok & Instagram)</li>
+                            <li>Shopify webshopbeheer</li>
+                            <li>Merkontwikkeling (DocsMedia)</li>
+                            <li>Minecraft serverbeheer</li>
+                            <li>Dronebesturing (DJI Mini 3)</li>
+                            <li>Smart home installatie</li>
+                            <li>Basis videobewerking</li>
+                            <li>Strategisch denken in games</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 custom-blue dark:text-white">🌱 Soft Skills</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Sterk zelfbewustzijn</li>
+                            <li>Probleemoplossend vermogen</li>
+                            <li>Empathie en loyaliteit</li>
+                            <li>Fysieke humor & sociale intelligentie</li>
+                            <li>Introvert met extraverte kracht</li>
+                            <li>Veerkracht na herstel uit coma</li>
+                            <li>Toekomstgericht denken</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projecten -->
+    <section class="bg-gradient-custom4 dark:bg-gray-900 pt-32 pb-24 px-4 scroll-mt-24" id="projecten">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 text-center custom-blue dark:text-white">Projecten</h2>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div data-highlight
+                    class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-lg font-bold custom-blue dark:text-white">Minecraft Survival Server</h3>
+                    <p class="dark:text-gray-300">Een zelfgehoste Paper Spigot server met custom plugins en modpacks...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Verhaal -->
     <section class="bg-gradient-custom4 dark:bg-gray-800 py-12 pt-28 pb-28 px-4" id="verhaal">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-2xl font-semibold mb-6 dark:text-white" data-aos="fade-right" data-aos-delay="100">Mijn
@@ -172,14 +202,16 @@
     <section class="bg-gradient-custom4 dark:bg-gray-900 py-8 pt-52 pb-52" id="bramfeed">
         <h2 class="text-2xl font-bold text-center mb-6 text-black dark:text-white">Wat houdt Bram bezig?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
-            <div data-highlight class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
+            <div data-highlight
+                class="p-4 rounded-lg shadow bg-blue-100 dark:bg-blue-900 col-span-1 md:col-span-3 mx-auto text-center w-full max-w-3xl">
                 <h3 class="font-semibold text-lg mb-2 dark:text-white">📺 Laatst gekeken</h3>
                 <img src="https://i.pinimg.com/736x/f2/7e/cc/f27ecc64d03a238d1add2d2af18ba4cd.jpg" alt="Lucifer"
                     class="mb-2 rounded mx-auto">
                 <p class="text-gray-700 dark:text-gray-300"><strong>Lucifer</strong><br><span
                         class="text-sm text-gray-600 dark:text-gray-400">Seizoen 5 – Netflix</span></p>
             </div>
-            <div data-highlight class="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:custom-white col-span-1 md:col-span-3">
+            <div data-highlight
+                class="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:custom-white col-span-1 md:col-span-3">
                 <h3 id="3games" class="font-semibold text-lg mb-4 text-center dark:custom-white">🎮 Top 3 favoriete
                     games all time
                 </h3>
@@ -221,16 +253,16 @@
         </div>
     </section>
 
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-6 bg-black text-white px-4">
-    &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
-  </footer>
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-6 bg-black text-white px-4">
+        &copy; 2025 Bram Bekema. Alle rechten voorbehouden.
+    </footer>
 
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 
 </html>

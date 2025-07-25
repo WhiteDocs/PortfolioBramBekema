@@ -296,4 +296,41 @@ a:hover {
       }
     }
 
+.glitch:hover {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-shadow: 1px 1px #f0f, -1px -1px #0ff;
+  transition: all 0.2s ease;
+}
+
+.glitch:hover {
+  animation: subtle-glitch 0.4s infinite;
+}
+
+@keyframes subtle-glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 1px 1px #f0f, -1px -1px #0ff;
+  }
+  25% {
+    transform: translate(-0.5px, 0.5px);
+    text-shadow: 1px -1px #f0f, -1px 1px #0ff;
+  }
+  50% {
+    transform: translate(0.5px, -0.5px);
+    text-shadow: -1px 1px #f0f, 1px -1px #0ff;
+  }
+  75% {
+    transform: translate(-0.5px, -0.5px);
+    text-shadow: 1px 1px #f0f, -1px -1px #0ff;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 1px 1px #f0f, -1px -1px #0ff;
+  }
+}
+
+
+
 
