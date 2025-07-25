@@ -1,59 +1,59 @@
 // AOS initialiseren
 AOS.init({
-    duration: 800,
-    once: true
+  duration: 800,
+  once: true
 });
 
 // Emoji animaties (bounce → pulse)
 document.querySelectorAll(".group").forEach(group => {
-    const emojis = group.querySelectorAll(".combo-emoji");
+  const emojis = group.querySelectorAll(".combo-emoji");
 
-    group.addEventListener("mouseenter", () => {
-        emojis.forEach(emoji => {
-            emoji.classList.remove("pulse-forever");
-            emoji.classList.add("bounce-once");
+  group.addEventListener("mouseenter", () => {
+    emojis.forEach(emoji => {
+      emoji.classList.remove("pulse-forever");
+      emoji.classList.add("bounce-once");
 
-            emoji.addEventListener("animationend", () => {
-                emoji.classList.remove("bounce-once");
-                emoji.classList.add("pulse-forever");
-            }, { once: true });
-        });
+      emoji.addEventListener("animationend", () => {
+        emoji.classList.remove("bounce-once");
+        emoji.classList.add("pulse-forever");
+      }, { once: true });
     });
+  });
 
-    group.addEventListener("mouseleave", () => {
-        emojis.forEach(emoji => emoji.classList.remove("pulse-forever"));
-    });
+  group.addEventListener("mouseleave", () => {
+    emojis.forEach(emoji => emoji.classList.remove("pulse-forever"));
+  });
 });
 
 // Scroll naar top bij refresh
 window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 };
 
 // Scroll naar boven bij refresh
 window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 };
 
 // Emoji bounce -> pulse
 document.querySelectorAll(".group").forEach(group => {
-    const emojis = group.querySelectorAll(".combo-emoji");
+  const emojis = group.querySelectorAll(".combo-emoji");
 
-    group.addEventListener("mouseenter", () => {
-        emojis.forEach(emoji => {
-            emoji.classList.remove("pulse-forever");
-            emoji.classList.add("bounce-once");
+  group.addEventListener("mouseenter", () => {
+    emojis.forEach(emoji => {
+      emoji.classList.remove("pulse-forever");
+      emoji.classList.add("bounce-once");
 
-            emoji.addEventListener("animationend", () => {
-                emoji.classList.remove("bounce-once");
-                emoji.classList.add("pulse-forever");
-            }, { once: true });
-        });
+      emoji.addEventListener("animationend", () => {
+        emoji.classList.remove("bounce-once");
+        emoji.classList.add("pulse-forever");
+      }, { once: true });
     });
+  });
 
-    group.addEventListener("mouseleave", () => {
-        emojis.forEach(emoji => emoji.classList.remove("pulse-forever"));
-    });
+  group.addEventListener("mouseleave", () => {
+    emojis.forEach(emoji => emoji.classList.remove("pulse-forever"));
+  });
 });
 
 console.log("Script geladen ✅");
@@ -142,6 +142,51 @@ function scheduleNextGlow() {
 
 document.addEventListener('DOMContentLoaded', () => {
   scheduleNextGlow(); // ← voeg deze toe
+});
+
+
+////////////////////////////////
+
+const clientId = "78dc17ae73d34dc2bab020939e068e29"; // jouw clientId
+const redirectUri = "https://whitedocs.github.io/PortfolioBramBekema/";
+const scopes = ["user-read-recently-played"];
+
+document.getElementById("login-btn").addEventListener("click", () => {
+  const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}`;
+  window.location.href = authUrl;
+});
+
+window.addEventListener("load", () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const token = new URLSearchParams(hash.substring(1)).get("access_token");
+    if (token) {
+      fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then(res => res.json())
+        .then(data => {
+          const track = data.items[0].track;
+          const output = document.getElementById("spotify-output");
+          const block = document.getElementById("spotify-block");
+          const album = document.getElementById("spotify-album");
+          const title = document.getElementById("spotify-title");
+          const artist = document.getElementById("spotify-artist");
+
+          album.src = track.album.images[0].url;
+          title.textContent = track.name;
+          artist.textContent = track.artists.map(a => a.name).join(", ");
+          block.classList.remove("opacity-0");
+
+        })
+        .catch(err => {
+          console.error("Spotify API error:", err);
+          document.getElementById("spotify-output").textContent = "❌ Kan Spotify-gegevens niet ophalen.";
+        });
+    }
+  }
 });
 
 

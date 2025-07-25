@@ -122,43 +122,50 @@
     </section>
 
     <section class="bg-white py-8" id="live-feed">
-  <h2 class="text-2xl font-bold text-center mb-6 text-black">Wat houdt Bram bezig?</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
+        <h2 class="text-2xl font-bold text-center mb-6 text-black">Wat houdt Bram bezig?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
 
-    <!-- Laatst gekeken -->
-    <div class="p-4 rounded-lg shadow bg-gray-100">
-      <h3 class="font-semibold text-lg mb-2">📺 Laatst gekeken</h3>
-      <img src="https://image.tmdb.org/t/p/w300/xwPCv4U6KxxwGY4gIOrdtqvWDvW.jpg" alt="Lucifer" class="mb-2 rounded">
-      <p><strong>Lucifer</strong> <br><span class="text-sm text-gray-600">Seizoen 6 – Netflix</span></p>
-    </div>
+            <!-- Laatst gekeken -->
+            <div class="p-4 rounded-lg shadow bg-gray-100">
+                <h3 class="font-semibold text-lg mb-2">📺 Laatst gekeken</h3>
+                <img src="https://image.tmdb.org/t/p/w300/xwPCv4U6KxxwGY4gIOrdtqvWDvW.jpg" alt="Lucifer"
+                    class="mb-2 rounded">
+                <p><strong>Lucifer</strong> <br><span class="text-sm text-gray-600">Seizoen 6 – Netflix</span></p>
+            </div>
 
-    <!-- Laatste nummer -->
-    <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-2xl font-bold mb-4">🎧 Laatst beluisterde muziek</h2>
+            <!-- Laatste nummer -->
+            <div class="max-w-3xl mx-auto text-center">
 
-    <div class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl">
-      <img src="https://i.scdn.co/image/ab67616d00001e021d04d2c9381a3b2fef8d87a3" 
-           alt="Album cover" 
-           class="w-16 h-16 rounded-md shadow-lg">
-           
-      <div class="text-left">
-        <p class="text-lg font-semibold text-white">Can You Feel My Heart</p>
-        <p class="text-sm text-gray-400">Bring Me The Horizon</p>
-      </div>
-    </div>
+                <h2 class="text-2xl font-bold mb-4">🎧 Laatst beluisterde muziek</h2>
 
-    <p class="text-xs text-gray-500 mt-3">Geüpdatet op: 25 juli 2025</p>
-  </div>
+                <!-- Hier komt de knop -->
+                <button id="login-btn"
+                    class="mb-4 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded shadow transition">
+                    🔒 Koppel Spotify
+                </button>
 
-    <!-- Wijn van de week -->
-    <div class="p-4 rounded-lg shadow bg-gray-100">
-      <h3 class="font-semibold text-lg mb-2">🍷 Wijn van de week</h3>
-      <img src="https://example.com/pinot.jpg" alt="Pinot Grigio" class="mb-2 rounded">
-      <p><strong>Pinot Grigio</strong> <br><span class="text-sm text-gray-600">Fris, bloemig – 8.5/10</span></p>
-    </div>
+                <div id="spotify-block"
+                    class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl opacity-0 transition-opacity duration-500">
+                    <img id="spotify-album" src="" alt="Album cover" class="w-16 h-16 rounded-md shadow-lg" />
 
-  </div>
-</section>
+                    <div class="text-left">
+                        <p id="spotify-title" class="text-lg font-semibold text-white">...</p>
+                        <p id="spotify-artist" class="text-sm text-gray-400">...</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Wijn van de week -->
+            <div class="p-4 rounded-lg shadow bg-gray-100">
+                <h3 class="font-semibold text-lg mb-2">🍷 Wijn van de week</h3>
+                <img src="https://example.com/pinot.jpg" alt="Pinot Grigio" class="mb-2 rounded">
+                <p><strong>Pinot Grigio</strong> <br><span class="text-sm text-gray-600">Fris, bloemig – 8.5/10</span>
+                </p>
+            </div>
+
+        </div>
+    </section>
 
 
     <!-- Contact Section -->
@@ -172,6 +179,7 @@
                 <a href="https://www.linkedin.com/in/bram-bekema-538922211/" class="text-blue-600 hover:underline"
                     target="_blank">LinkedIn</a>
             </div>
+
         </div>
     </section>
 
