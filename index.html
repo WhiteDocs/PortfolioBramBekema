@@ -17,7 +17,10 @@
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="typed-init.js" defer></script>
+    <!-- Spotify Web API SDK -->
     <script src="https://cdn.jsdelivr.net/npm/spotify-web-api-js@1.5.2/src/spotify-web-api.js"></script>
+    <script src="spotify-auth.js" defer></script>
+    <script src="spotify-player.js" defer></script>
     <script src="spotify.js" defer></script>
 
 
@@ -122,6 +125,24 @@
                 dankbaarder en vastberadener dan ooit. Of het nu gaat om sporten, content maken, of simpelweg genieten
                 van een goed glas wijn – ik pak mijn kansen en wil een verschil maken.</p>
         </div>
+
+        <!-- Spotify blok -->
+        <div class="text-center">
+            <button id="spotify-login-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 hidden">
+                🔑 Koppel Spotify
+            </button>
+
+            <div id="spotify-block"
+                class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl opacity-0 transition-opacity duration-500 mt-4">
+                <img id="spotify-album" src="" alt="Album cover" class="w-16 h-16 rounded-md shadow-lg" />
+                <div class="text-left">
+                    <p id="spotify-title" class="text-lg font-semibold text-white">...</p>
+                    <p id="spotify-artist" class="text-sm text-gray-400">...</p>
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
     <section class="bg-white py-8" id="live-feed">
@@ -137,17 +158,18 @@
             </div>
 
             <!-- Spotify blok -->
-            <div class="text-center mt-10">
-                <button id="spotify-login-btn" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded">
-                    🔐 Koppel Spotify
+            <div class="text-center">
+                <button id="spotify-login-btn"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 hidden">
+                    🔑 Koppel Spotify
                 </button>
 
                 <div id="spotify-block"
-                    class="flex items-center justify-center gap-4 bg-gray-900 text-white rounded-xl p-4 shadow-xl mt-4 opacity-0 transition-opacity duration-500">
-                    <img id="spotify-album" src="" alt="Album cover" class="w-16 h-16 rounded shadow" />
+                    class="flex items-center justify-center gap-4 bg-gray-900 rounded-xl p-4 shadow-xl opacity-0 transition-opacity duration-500 mt-4">
+                    <img id="spotify-album" src="" alt="Album cover" class="w-16 h-16 rounded-md shadow-lg" />
                     <div class="text-left">
-                        <p id="spotify-title" class="text-lg font-bold">Titel...</p>
-                        <p id="spotify-artist" class="text-sm text-gray-300">Artiest...</p>
+                        <p id="spotify-title" class="text-lg font-semibold text-white">...</p>
+                        <p id="spotify-artist" class="text-sm text-gray-400">...</p>
                     </div>
                 </div>
             </div>
@@ -194,6 +216,10 @@
             once: true
         });
     </script>
+
+    <script src="spotify.js"></script>
+    <script src="spotify-auth.js"></script>
+    <script src="spotify-player.js"></script>
 
 </body>
 
